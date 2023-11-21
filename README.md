@@ -1,5 +1,5 @@
 # EcoGS
-_**by Samer Alban Kadib, Georgios Marinos, Johannes Zimmermann, and Christoph Kaleta**_
+_**by Samer Alban Kadib, Georgios Marinos, Johannes Zimmermann, Silvio Waschina, and Christoph Kaleta**_
 
 A suite to predict the ecological relationships between gapseq models by comparing the achieved growth when the models are alone and the achieved growth when the models are part of a community model.
 
