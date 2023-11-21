@@ -1,0 +1,27 @@
+Package: ecogs
+Title: EcoGS
+Version: 0.0.1
+Authors@R: c(
+   person("Samer", "Alban Kadib", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
+           comment = c(ORCID = "XXXX-XXXX-XXXX-XXXX")),
+   person("Georgios", "Marinos", , "g.marinos@iem.uni-kiel.de", role = c("aut"),
+           comment = c(ORCID = "0000-0002-6443-7696")),
+   person("Johannes", "Zimmermann", , "j.zimmermann@iem.uni-kiel.de", role = c("ctb"),
+           comment = c(ORCID = "0000-0002-5041-1954")),
+   person("Christoph", "Kaleta", , "c.kaleta@iem.uni-kiel.de", role = c("cre"),
+           comment = c(ORCID = "0000-0001-8004-9514")))
+Description: Simulating ecological interactions using genome-scale metabolic modelling.
+License: CC BY 4.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends:
+  utils,
+  sybil,
+  MicrobiomeGS2,
+  cplexAPI,
+  parallel,
+  doParallel,
+  foreach,
+  graphics
+LazyData: true
