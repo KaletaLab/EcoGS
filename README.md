@@ -37,7 +37,7 @@ It requires the following software / R packages:
   10. foreach
   11. graphics
 
-For installing MicrobiomeGS2 and cplexAPI please follow the instructions here: https://github.com/Waschina/MicrobiomeGS2/tree/main
+For further instructions regarding the installation of MicrobiomeGS2 and cplexAPI, please consult the following page: https://github.com/Waschina/MicrobiomeGS2/blob/main/README.md
 
 ## References and acknowlegments
 This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre.
