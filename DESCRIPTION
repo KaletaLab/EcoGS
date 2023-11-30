@@ -30,6 +30,6 @@ Depends:
   foreach,
   graphics
 Remotes: 
-  SysBioChalmers/sybil
+  SysBioChalmers/sybil,
   Waschina/MicrobiomeGS2
 LazyData: true
