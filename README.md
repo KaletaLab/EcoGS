@@ -23,16 +23,19 @@ To run the suite, run the following functions:
 4. `relation_per_sample` to calculate the prediction of the frequency of ecological relationship between pairs of co-grown bacteria in each sample. It requires a user imported OTU table.
 
 ## Installation
-It requires the following packages:
-
-1. sybil
-2. cplexAPI
-3. MicrobiomeGS2
-4. parallel
-5. doParallel
-6. foreach
-7. graphics
-8. utils
+It requires the following software / R packages:
+  
+  1. R (>= 4.0.0)
+  2. data.table (>= 1.13.4)
+  3. sybil (>= 2.1.5)
+  4. stringr (>= 1.4.0)
+  5. utils
+  6. MicrobiomeGS2
+  7. cplexAPI
+  8. parallel
+  9. doParallel
+  10. foreach
+  11. graphics
 
 For installing MicrobiomeGS2 and cplexAPI please follow the instructions here: https://github.com/Waschina/MicrobiomeGS2/tree/main
 
