@@ -34,6 +34,8 @@ It requires the following packages:
 7. graphics
 8. utils
 
+For installing MicrobiomeGS2 and cplexAPI please follow the instructions here: https://github.com/Waschina/MicrobiomeGS2/tree/main
+
 ## References and acknowlegments
 This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre.
 
