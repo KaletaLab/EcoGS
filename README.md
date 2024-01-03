@@ -1,7 +1,8 @@
 # EcoGS
 _**by Samer Alban Kadib, Georgios Marinos, Johannes Zimmermann, Silvio Waschina, and Christoph Kaleta**_
 
-A suite to predict the ecological relationships between gapseq models by comparing the achieved growth when the models are alone and the achieved growth when the models are part of a community model.
+A suite to predict the ecological relationships between gapseq models by comparing the achieved growth when the models are alone and the achieved growth when the models are part of a community model. The software support genome-scale metabolic models that are reconstructed using gapseq [1]. The achieved growth of each model was calculated  models based on flux balance analysis using the R [2] package sybil [3]. The community model was assembled and its growth was assessed using the R package MicrobiomeGS2 [4].
+
 
 |Species 1|Species 2|Relation|
 |-----|-----|-----|
@@ -41,6 +42,12 @@ For further instructions regarding the installation of MicrobiomeGS2 and cplexAP
 
 ## References and acknowlegments
 This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre.
+
+1. Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021 Mar 10;22(1):81.
+2. R Core Team. R: A Language and Environment for Statistical Computing [Internet]. Vienna, Austria: R Foundation for Statistical Computing; Available from: https://www.R-project.org/
+3.	Gelius-Dietrich G, Desouki AA, Fritzemeier CJ, Lercher MJ. sybil – Efficient constraint-based modelling in R. BMC Syst Biol. 2013 Dec;7(1):125.
+4.	Waschina S. Analysis and simulation of genome- & ecosystem-scale microbial metabolism [Internet]. Available from: www.github.com/Waschina/MicrobiomeGS2
+
 
 ## Citation
 Alban Kadib, Marinos _et al._, **Genome–scale metabolic models predict associations among human dietary compounds and microbial ecological interactions**, in preparation
