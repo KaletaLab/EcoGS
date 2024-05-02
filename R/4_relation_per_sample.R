@@ -3,9 +3,10 @@
 #' The prediction of the frequency of ecological relationship between pairs of co-grown bacteria in each sample (community)
 #' as exported by the function make_eco_mat and a user imported OTU table
 #'
-#' @param weighing_method either "min" for using lower abundance of the interacting bacteria for whighing (default), or "multi" for using the multiplication of the two abundances.
 #' @param OTU_table a matrix of the abundances of each species in each sample (columns are samples and rows are bacterial species)
 #' @param eco_mat a list, as exported by the function make_eco_mat and which contains: matrix of all_models X all_models with each cell represents the ecological relation between the two strains
+#' @param weighing_method either "min" for using lower abundance of the interacting bacteria for weighing (default), or "multi" for using the multiplication of the two abundances
+#' 
 #' @return
 #' (a list object in the R environment)
 #'
@@ -15,7 +16,7 @@
 #'
 #' @export
 #'
-relation_per_sample <- function(OTU_table, eco_mat, weighing_method="min"){
+relation_per_sample <- function(OTU_table, eco_mat, weighing_method = "min"){
   relations <- unique(unlist(eco_mat))
   relations <- relations[relations != "Alone"]
   relations_per_samp <- as.data.frame(matrix(0, ncol(OTU_table), length(relations)))
@@ -39,14 +40,14 @@ relation_per_sample <- function(OTU_table, eco_mat, weighing_method="min"){
     samp_abund_mat <- samp_eco_mat
     samp_abund_mat[] <- 0
     sp <- rownames(samp_abund)[1]
-    while(length(bac_in_samp)>0){
+    while (length(bac_in_samp) > 0) {
       sp1 <- bac_in_samp[1]
       bac_in_samp <- bac_in_samp[-1]
-      for (sp2 in bac_in_samp){
-        if(args[[3]]=="min"){
+      for (sp2 in bac_in_samp) {
+        if (weighing_method == "min") {
           samp_abund_mat[sp1,sp2] <- min(samp_abund[sp1, "abund"], samp_abund[sp2, "abund"])
         }
-        else{
+        else if (weighing_method == "multi") {
           samp_abund_mat[sp1,sp2] <- samp_abund[sp1, "abund"]*samp_abund[sp2, "abund"]
         }
       }

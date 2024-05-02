@@ -22,6 +22,7 @@ To run the suite, run the following functions:
 2. `make_eco_mat` to calculate the ecological matrix and the matrix of growth change for all models
 3. `plot_relations` to plot the number of pairs in each type of ecological relations
 4. `relation_per_sample` to calculate the prediction of the frequency of ecological relationship between pairs of co-grown bacteria in each sample. It requires a user imported OTU table.
+5. `relation_ratios` to transform the ecological relation frequencies into log10 ratios.
 
 ## Installation
 It requires the following software / R packages:

@@ -25,6 +25,7 @@ b. the result of the biomass optimisation and the metabolic interactions for eac
 (to be saved as a RDS file inside the working directory, if save_pair set to T)
 
 For each pair, a list with:
+
 a.the joined model
 
 b.the common exchange reactions
