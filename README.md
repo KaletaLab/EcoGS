@@ -55,4 +55,6 @@ A. Samer Kadibalban*, Georgios Marinos*, Johannes Zimmermann, Silvio Waschina, a
 
 *shared first authorship with an interchangeable order
 
+GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
+
 
