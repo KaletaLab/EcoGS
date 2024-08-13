@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Kadibalban"
+  given-names: "A. Samer"
+  orcid: "https://orcid.org/0009-0001-9726-543X"
+- family-names: "Marinos"
+  given-names: "Georgios"
+  orcid: "https://orcid.org/0000-0002-6443-7696"
+- family-names: "Moors"
+  given-names: "Karlis Arturs"
+  orcid: "https://orcid.org/0000-0001-6529-2970"
+- family-names: "Silvio"
+  given-names: "Waschina"
+  orcid: "https://orcid.org/0000-0002-6290-3593"
+- family-names: "Kaleta"
+  given-names: "Christoph"
+  orcid: "https://orcid.org/0000-0001-8004-9514"
+title: "EcoGS: Metabolic modelling reveals a sugar-induced shift towards exploitative ecological interactions among the human gut microbiome"
+doi: in preparation
+url: "https://github.com/maringos/EcoGS/"
