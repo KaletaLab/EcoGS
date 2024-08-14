@@ -51,7 +51,7 @@ This research was supported in part through high-performance computing resources
 
 
 ## Citation
-A. Samer Kadibalban*, Georgios Marinos*, Johannes Zimmermann, Silvio Waschina, and Christoph Kaleta, **Genome–scale metabolic models predict associations among human dietary compounds and microbial ecological interactions**, 2024, in preparation
+A. Samer Kadibalban*, Georgios Marinos*, Karlis Arturs Moors, Johannes Zimmermann, Silvio Waschina, and Christoph Kaleta, **EcoGS: Metabolic modelling reveals a sugar-induced shift towards exploitative ecological interactions among the human gut microbiome**, 2024, in preparation
 
 *shared first authorship with an interchangeable order
 
