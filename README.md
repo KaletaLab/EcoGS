@@ -1,5 +1,4 @@
-# EcoGS
-_**by A. Samer Kadibalban, Georgios Marinos, Johannes Zimmermann, Silvio Waschina, and Christoph Kaleta**_
+# EcoGS **by Samer Alban and Georgios Marinos**
 
 A suite to predict the ecological relationships between gapseq models by comparing the achieved growth when the models are alone and the achieved growth when the models are part of a community model. The software supports genome-scale metabolic models that are reconstructed using gapseq [1]. The achieved growth of each model was calculated models based on flux balance analysis using the R [2] package sybil [3]. The community model was assembled and its growth was assessed using the R package MicrobiomeGS2 [4].
 
