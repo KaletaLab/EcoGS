@@ -56,4 +56,6 @@ A. Samer Kadibalban*, Georgios Marinos*, Karlis Arturs Moors, Johannes Zimmerman
 
 GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
 
+Contact details: https://www.iem.uni-kiel.de/de/medizinische-systembiologie/medizinische-systembiologie
+
 
