@@ -40,6 +40,14 @@ It requires the following software / R packages:
 
 For further instructions regarding the installation of MicrobiomeGS2 and cplexAPI, please consult the following page: https://github.com/Waschina/MicrobiomeGS2/blob/main/README.md
 
+
+## Technical details
+We used MicrobiomeGS2 as the basis for EcoGS, in each case, two bacterial models were merged into one and regarded as interconnected distinct compartments of the merged model.
+Importantly, we kept the objective function of each model independent from the other and optimised each objective simultaneously.
+The objective function was the biomass reaction of each model. Therefore, we did not assume any abundance but we inferred it from the optimization of each biomass reaction. Depending on both resulting growth rates, we estimated the ecological interactions. Although there are non-unique solutions to such optimization problems, the sybil software in R and the CPLEX solver return stable results. Therefore, in practice, we did not face this issue.
+
+
+
 ## References and acknowlegments
 This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre.
 
