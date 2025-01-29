@@ -12,7 +12,7 @@ A suite to predict the ecological relationships between gapseq models by compari
 |1|-1|Parasitism|
 |-1|-1|Competition|
 
-0: no growth change, 1: increase of growth, 2: decrease of growth
+0: no growth change, 1: increase of growth, -1: decrease of growth
 
 ## Quick start
 To run the suite, run the following functions:
