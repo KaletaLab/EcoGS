@@ -60,7 +60,7 @@ This research was supported in part through high-performance computing resources
 ## Citation
 Georgios Marinos, Karlis Arturs Moors, Johannes Zimmermann, Silvio Waschina, Christoph Kaleta*, and A. Samer Kadibalban*,  **EcoGS: Metabolic modelling reveals a sugar-induced shift towards exploitative ecological interactions among the human gut microbiome**, 2024, in preparation
 
-*Shared correspondent authors; inquires to c.kaleta@iem.uni-kiel.de and s.kadibalban@iem.uni-kiel.de
+*Shared correspondent authors; inquires to c.kaleta@iem.uni-kiel.de and/or s.kadibalban@iem.uni-kiel.de
 
 GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
 
