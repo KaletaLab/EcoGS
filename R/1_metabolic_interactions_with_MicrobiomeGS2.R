@@ -88,10 +88,6 @@ metabolic_interactions_with_MicrobiomeGS2 <- function(list_of_models,
                                  # add objective coefficient to each biomass reaction
                                  mod_probio@obj_coef[grep("M[0-9]+_EX_cpd11416_c0",mod_probio@react_id)] <- 1
 
-                                 # block quinon exchanges #MicrobiomeGS Default
-                                 mod_probio@uppbnd[grep("M[0-9]+_EX_cpd11606",mod_probio@react_id)] <- 0.5
-                                 mod_probio@uppbnd[grep("M[0-9]+_EX_cpd11451",mod_probio@react_id)] <- 0.5
-
                                  # coupling
                                  cpl_probio <- MicrobiomeGS2::get_coupling_constraints_mult(mod_probio,
                                                                              cpl_c = 400,
