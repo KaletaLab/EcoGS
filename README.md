@@ -24,6 +24,12 @@ To run the suite, run the following functions:
 5. `relation_ratios` to transform the ecological relation frequencies into log10 ratios.
 
 ## Installation
+
+```r
+library(devtools)
+install_github("KaletaLab/EcoGS")
+```
+
 It requires the following software / R packages:
   
   1. R (>= 4.0.0)
