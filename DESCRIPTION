@@ -2,16 +2,10 @@ Package: EcoGS
 Title: EcoGS
 Version: 0.0.1
 Authors@R: c(
-   person("Samer", "Alban Kadib", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
-           comment = c(ORCID = "0009-0001-9726-543X")),
    person("Georgios", "Marinos", , "g.marinos@iem.uni-kiel.de", role = c("aut"),
            comment = c(ORCID = "0000-0002-6443-7696")),
-   person("Johannes", "Zimmermann", , "j.zimmermann@iem.uni-kiel.de", role = c("ctb"),
-           comment = c(ORCID = "0000-0002-5041-1954")),
-   person("Silvio", "Waschina", , "s.waschina@nutrinf.uni-kiel.de", role = c("ctb"),
-           comment = c(ORCID = "0000-0002-6290-3593")),
-   person("Christoph", "Kaleta", , "c.kaleta@iem.uni-kiel.de", role = c("cre"),
-           comment = c(ORCID = "0000-0001-8004-9514")))
+   person("Samer", "Alban Kadib", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
+           comment = c(ORCID = "0009-0001-9726-543X")))
 Description: Simulating ecological interactions using genome-scale metabolic modelling.
 License: CC BY 4.0
 Encoding: UTF-8
