@@ -58,7 +58,7 @@ This research was supported in part through high-performance computing resources
 
 
 ## Citation
-Georgios Marinos, Karlis Arturs Moors, Silvio Waschina, Malte Rühlemann, Mathieu Groussin, Mathilde Poyet, Wolfgang Lieb, Andre Franke, Matthias Laudes, Christoph Kaleta*, and A. Samer Kadibalban*,  **EcoGS: Metabolic modelling reveals a sugar-induced shift towards exploitative ecological interactions among the human gut microbiome**, 2025, in preparation
+Georgios Marinos, Karlis Arturs Moors, Malte Rühlemann, Silvio Waschina, Wolfgang Lieb, Andre Franke, Matthias Laudes, Mathieu Groussin, Mathilde Poyet, Christoph Kaleta, and A. Samer Kadibalban, 2025, in preparation
 
 *Shared corresponding authors; inquires to c.kaleta@iem.uni-kiel.de and/or s.kadibalban@iem.uni-kiel.de
 
