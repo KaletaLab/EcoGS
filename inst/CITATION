@@ -1,0 +1,22 @@
+bibentry(
+  bibtype = "Article",
+  header = "To cite EcoGS in publications, please use",
+  author = c(
+    person("Georgios", "Marinos"),
+    person("Karlis Arturs", "Moors"),
+    person("Malte", "Rühlemann"),
+    person("Silvio", "Waschina"),
+    person("Wolfgang", "Lieb"),
+    person("Andre", "Franke"),
+    person("Matthias", "Laudes"),
+    person("Mathieu", "Groussin"),
+    person("Mathilde", "Poyet"),
+    person("Christoph", "Kaleta"),
+    person("A. Samer", "Kadibalban")
+  ),
+  title = "Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome",
+  journal = "Unpublished manuscript",
+  year = "2025",
+  #doi = "to be added soon",
+  url = "https://github.com/KaletaLab/EcoGS",
+)
