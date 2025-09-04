@@ -8,8 +8,8 @@ Authors@R: c(
            comment = c(ORCID = "0009-0001-9726-543X")),
    person("Christoph", "Kaleta", , "c.kaleta@iem.uni-kiel.de", role = c("cre"),
            comment = c(ORCID = "0000-0001-8004-9514")))
-Description: Simulating ecological interactions using genome-scale metabolic modelling.
-License: CC BY 4.0
+Description: Simulating ecological interactions using genome-scale metabolic modelling
+License: GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
