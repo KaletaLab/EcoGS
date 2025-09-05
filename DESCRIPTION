@@ -4,10 +4,11 @@ Version: 0.0.1
 Authors@R: c(
    person("Georgios", "Marinos", , "g.marinos@iem.uni-kiel.de", role = c("aut"),
            comment = c(ORCID = "0000-0002-6443-7696")),
-   person("Samer", "Alban Kadib", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
-           comment = c(ORCID = "0009-0001-9726-543X")),
    person("Christoph", "Kaleta", , "c.kaleta@iem.uni-kiel.de", role = c("cre"),
-           comment = c(ORCID = "0000-0001-8004-9514")))
+           comment = c(ORCID = "0000-0001-8004-9514")),
+   person("Samer", "Kadib Alban", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
+           comment = c(ORCID = "0009-0001-9726-543X"))
+   )
 Description: Simulating ecological interactions using genome-scale metabolic modelling
 License: GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
 Encoding: UTF-8
