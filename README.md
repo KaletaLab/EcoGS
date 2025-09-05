@@ -1,4 +1,4 @@
-# EcoGS **by Georgios Marinos and Samer Alban**
+# EcoGS **by Georgios Marinos and Samer Kadib Alban**
 
 A suite to predict the ecological relationships between gapseq models by comparing the achieved growth when the models are alone and the achieved growth when the models are part of a community model. The software supports genome-scale metabolic models that are reconstructed using gapseq [1]. The achieved growth of each model was calculated models based on flux balance analysis using the R [2] package sybil [3]. The community model was assembled and its growth was assessed using the R package MicrobiomeGS2 [4].
 
@@ -17,7 +17,7 @@ A suite to predict the ecological relationships between gapseq models by compari
 ## Quick start
 To run the suite, run the following functions:
 
-1. `metabolic_interactions_with_MicrobiomeGS2()` to simulate growth of the models
+1. `metabolic_interactions_with_MicrobiomeGS2` to simulate growth of the models
 2. `make_eco_mat` to calculate the ecological matrix and the matrix of growth change for all models
 3. `plot_relations` to plot the number of pairs in each type of ecological relations
 4. `relation_per_sample` to calculate the prediction of the frequency of ecological relationship between pairs of co-grown bacteria in each sample. It requires a user imported OTU table.
