@@ -35,5 +35,5 @@ authors:
     given-names: "A. Samer"
     orcid: "https://orcid.org/0009-0001-9726-543X"
 title: "Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome"
-doi: "https://doi.org/10.1101/2025.09.23.678088"
+doi: "10.1101/2025.09.23.678088"
 repository-code: "https://github.com/KaletaLab/EcoGS"
