@@ -17,6 +17,6 @@ bibentry(
   title = "Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome",
   journal = "Unpublished manuscript",
   year = "2025",
-  #doi = "to be added soon",
+  doi = "https://doi.org/10.1101/2025.09.23.678088",
   url = "https://github.com/KaletaLab/EcoGS",
 )
