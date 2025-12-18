@@ -13,7 +13,7 @@ Description: Simulating ecological interactions using genome-scale metabolic mod
 License: GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Depends:
   R (>= 4.0.0),
   data.table (>= 1.13.4),
@@ -30,3 +30,7 @@ Remotes:
   SysBioChalmers/sybil,
   Waschina/MicrobiomeGS2
 LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
