@@ -27,6 +27,9 @@ To run the suite, run the following functions:
 
 ```r
 if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
+# Installation without the vignette
+devtools::install_github("KaletaLab/EcoGS")
+# Building the vignette takes longer.
 devtools::install_github("KaletaLab/EcoGS", build_vignettes = TRUE)
 ```
 

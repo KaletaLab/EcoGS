@@ -4,14 +4,12 @@ subtitle: "**Link**: www.github.com/KaletaLab/EcoGS | **Commit**: 8f9268e3"
 author: "Dr Georgios Marinos and Dr Samer Kadib Alban"
 date: "`r format(Sys.time(), '%A, %B %d, %Y')`"
 output: 
-  bookdown::pdf_document2:
-    latex_engine: xelatex
+  pdf_document:
+    latex_engine: pdflatex
     toc: true
     number_sections: true
   rmarkdown::html_vignette:
     toc: true
-mainfont: Ubuntu
-monofont: "Ubuntu Mono"
 header-includes:
   - \usepackage{geometry}
   - \geometry{margin=1in}
