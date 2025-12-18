@@ -120,7 +120,7 @@ overview of the interaction network.
 ```{r Pipeline_1_3}
 # Step 1: Simulate pairwise metabolic interactions
 step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
-                                                   cores = 8, save_pair = T)
+                                                   cores = 1, save_pair = T)
 
 # Step 2: Construct the ecological matrix
 step2 <- make_eco_mat(growth_file = step1)
