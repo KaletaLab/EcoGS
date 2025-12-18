@@ -56,7 +56,7 @@ Importantly, we kept the objective function of each model independent from the o
 The objective function was the biomass reaction of each model. Therefore, we did not assume any abundance but we inferred it from the optimization of each biomass reaction. Depending on both resulting growth rates, we estimated the ecological interactions. Although there are non-unique solutions to such optimisation problems, the sybil software in R and the CPLEX solver return stable results. Therefore, in practice, we did not face this issue.
 
 ## Manual
-For a detailed step-by-step tutorial, including data initialisation and statistical downstream analysis, please view the package vignette. The SIHUMI [5] metabolic models utilised in the tutorial are located in the inst/extdata/ directory.
+For a detailed step-by-step tutorial, including data initialisation and statistical downstream analysis, please view the package vignette. The SIHUMIx [5] metabolic models utilised in the tutorial are located in the inst/extdata/ directory.
 
 To access the manual from within R, run:
 
