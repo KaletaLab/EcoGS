@@ -15,21 +15,44 @@ The following example runs immediately after installation. Please make sure that
 It uses existing SIHUMIx **sybil** metabolic models and does **not** require **gapseq** or any external reconstruction pipeline.
 
 ```r
+# Load EcoGS
 library(EcoGS)
 
-# Load example models (SIHUMIx community)
+# Load the pre-defined SIHUMIx metabolic models
 path <- system.file("extdata", "SIHUMIx_gapseq_EcoGS.RDS", package = "EcoGS")
-models <- readRDS(path)
+SIHUMIx_gapseq_EcoGS <- readRDS(path)
 
-# Run pairwise interaction simulations
-res <- metabolic_interactions_with_MicrobiomeGS2(models)
+set.seed(42)
+# Create a random abundance table for 8 species across 10 mice
+abundance <- as.data.frame(matrix(0,8,10))
+row.names(abundance) <- names(SIHUMIx_gapseq_EcoGS)
+names(abundance) <- paste0("mouse",1:10)
+for (i in 1:8) {
+abundance[i,] <- sample(1:100, 10)
+}
 
-# Construct ecological interaction matrix
-eco_mat <- make_eco_mat(res)
+# Normalise each column by its sum to obtain relative abundance
+abundance <- as.data.frame(apply(abundance, 2, function(x) x / sum(x)))
 
-# Visualise interaction frequencies
-plot_relations(eco_mat)
+# Step 1: Simulate pairwise metabolic interactions
+step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
+cores = 1, save_pair = T)
 
+# Step 2: Construct the ecological matrix
+step2 <- make_eco_mat(growth_file = step1)
+
+# Step 3: Visualise the predicted relations
+step3 <- plot_relations(eco_mat = step2$eco_mat)
+
+# Step 4: Weigh interactions
+step4_min <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
+weighing_method = "min")
+step4_multi <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
+weighing_method = "multi" )
+
+# Step 5: Calculate log10 interaction ratios
+step5_min <- relation_ratios(relations_table = step4_min$weighed_relations)
+step5_multi <- relation_ratios(relations_table = step4_multi$weighed_relations)
 ```
 ## Ecological interaction classification
 
