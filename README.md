@@ -9,51 +9,6 @@ Growth rates are calculated using flux balance analysis via the **R** [2] packag
 
 ---
 
-## Quick start
-
-The following example runs immediately after installation. Please make sure that you choose the installation method that includes the vignette.  
-It uses existing SIHUMIx **sybil** metabolic models and does **not** require **gapseq** or any external reconstruction pipeline.
-
-```r
-# Load EcoGS
-library(EcoGS)
-
-# Load the pre-defined SIHUMIx metabolic models
-path <- system.file("extdata", "SIHUMIx_gapseq_EcoGS.RDS", package = "EcoGS")
-SIHUMIx_gapseq_EcoGS <- readRDS(path)
-
-set.seed(42)
-# Create a random abundance table for 8 species across 10 mice
-abundance <- as.data.frame(matrix(0,8,10))
-row.names(abundance) <- names(SIHUMIx_gapseq_EcoGS)
-names(abundance) <- paste0("mouse",1:10)
-for (i in 1:8) {
-abundance[i,] <- sample(1:100, 10)
-}
-
-# Normalise each column by its sum to obtain relative abundance
-abundance <- as.data.frame(apply(abundance, 2, function(x) x / sum(x)))
-
-# Step 1: Simulate pairwise metabolic interactions
-step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
-cores = 1, save_pair = T)
-
-# Step 2: Construct the ecological matrix
-step2 <- make_eco_mat(growth_file = step1)
-
-# Step 3: Visualise the predicted relations
-step3 <- plot_relations(eco_mat = step2$eco_mat)
-
-# Step 4: Weigh interactions
-step4_min <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
-weighing_method = "min")
-step4_multi <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
-weighing_method = "multi" )
-
-# Step 5: Calculate log10 interaction ratios
-step5_min <- relation_ratios(relations_table = step4_min$weighed_relations)
-step5_multi <- relation_ratios(relations_table = step4_multi$weighed_relations)
-```
 ## Ecological interaction classification
 
 Ecological relationships are inferred from growth changes observed when two models are simulated together compared to when simulated alone.
@@ -160,7 +115,51 @@ The tutorial is also available as a PDF:
 https://github.com/KaletaLab/EcoGS/blob/main/vignettes/vignette.pdf  
 
 ---
+## Quick start
 
+The following example runs immediately after installation. Please make sure that you choose the installation method that includes the vignette. It uses existing SIHUMIx **sybil** metabolic models and does **not** require **gapseq** or any external reconstruction pipeline.
+
+```r
+# Load EcoGS
+library(EcoGS)
+
+# Load the pre-defined SIHUMIx metabolic models
+path <- system.file("extdata", "SIHUMIx_gapseq_EcoGS.RDS", package = "EcoGS")
+SIHUMIx_gapseq_EcoGS <- readRDS(path)
+
+set.seed(42)
+# Create a random abundance table for 8 species across 10 mice
+abundance <- as.data.frame(matrix(0,8,10))
+row.names(abundance) <- names(SIHUMIx_gapseq_EcoGS)
+names(abundance) <- paste0("mouse",1:10)
+for (i in 1:8) {
+abundance[i,] <- sample(1:100, 10)
+}
+
+# Normalise each column by its sum to obtain relative abundance
+abundance <- as.data.frame(apply(abundance, 2, function(x) x / sum(x)))
+
+# Step 1: Simulate pairwise metabolic interactions
+step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
+cores = 1, save_pair = T)
+
+# Step 2: Construct the ecological matrix
+step2 <- make_eco_mat(growth_file = step1)
+
+# Step 3: Visualise the predicted relations
+step3 <- plot_relations(eco_mat = step2$eco_mat)
+
+# Step 4: Weigh interactions
+step4_min <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
+weighing_method = "min")
+step4_multi <- relation_per_sample(OTU_table = abundance, eco_mat = step2$eco_mat,
+weighing_method = "multi" )
+
+# Step 5: Calculate log10 interaction ratios
+step5_min <- relation_ratios(relations_table = step4_min$weighed_relations)
+step5_multi <- relation_ratios(relations_table = step4_multi$weighed_relations)
+
+```
 ## References and acknowledgements
 
 We thank the iTREAT consortium, the Excellence Cluster for Precision Medicine in Chronic Inflammation (PMI), and the German Research Foundation (DFG) for their support within the Collaborative Research Centre “Origin and Function of Metaorganisms” (CRC 1182), the Research Group miTarget, and the Project ExoMod.
