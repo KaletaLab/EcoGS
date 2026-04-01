@@ -3,7 +3,7 @@
 
 A suite to predict ecological relationships between microbial genome-scale metabolic models by comparing growth when models are simulated alone versus when simulated within a community model.
 
-EcoGS operates on existing **sybil** [1] metabolic models originated from the **gapseq** [2] pipeline. Further model reconstruction is not required to run the package.
+EcoGS operates on existing **sybil** [1] metabolic models originated from the **gapseq** [2] pipeline. Further model reconstruction is not required to run the package. Please use [**sybilSBML**](https://www.cs.hhu.de/en/research-groups/computational-cell-biology/software-contributions/sybil) to import **gapseq** models from SBML files, as EcoGS does not operate on **gapseq** models in [**cobrar**](https://github.com/Waschina/cobrar) format.
 
 Growth rates are calculated using flux balance analysis via the **R** [2] package **sybil** [1]. Community models are assembled and simulated using **MicrobiomeGS2** [4].
 
