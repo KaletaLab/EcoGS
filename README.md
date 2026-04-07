@@ -61,8 +61,12 @@ Rscript -e "devtools::install_github('SysBioChalmers/sybil')"
 Rscript -e "devtools::install_github('SysBioChalmers/sybil-SBML')"
 # install MicrobiomeGS2
 Rscript -e "devtools::install_github('Waschina/MicrobiomeGS2')"
+
 # install EcoGS without vignette
 Rscript -e "devtools::install_github('KaletaLab/EcoGS')"
+
+#OR
+
 # install EcoGS including vignette (longer build time)
 Rscript -e "devtools::install_github('KaletaLab/EcoGS', build_vignettes = TRUE)"
 ```
@@ -177,7 +181,7 @@ This research was supported in part through high-performance computing resources
 1. Gelius-Dietrich G, Desouki AA, Fritzemeier CJ, Lercher MJ. sybil – Efficient constraint-based modelling in R. BMC Syst Biol. 2013;7:125.  
 2. Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021;22:81. 
 3. R Core Team. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing.  
-4. Waschina S. Analysis and simulation of genome- & ecosystem-scale microbial metabolism (https://github.com/Waschina/MicrobiomeGS2/).  
+4. Waschina S. Analysis and simulation of genome- & ecosystem-scale microbial metabolism. (https://github.com/Waschina/MicrobiomeGS2/)  
 5. Becker N, Kunath J, Loh G, Blaut M. Human intestinal microbiota: characterisation of a simplified and stable gnotobiotic rat model. Gut Microbes. 2011;2:25–33.
 
 ---
