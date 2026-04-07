@@ -1,6 +1,6 @@
 Package: EcoGS
-Title: EcoGS
-Version: 0.0.1
+Title: Ecological Analysis Using Genome-Scale Metabolic Models
+Version: 0.0.2
 Authors@R: c(
    person("Georgios", "Marinos", , "g.marinos@iem.uni-kiel.de", role = c("aut"),
            comment = c(ORCID = "0000-0002-6443-7696")),
@@ -9,8 +9,9 @@ Authors@R: c(
    person("Samer", "Kadib Alban", , "s.kadibalban@iem.uni-kiel.de", role = c("aut"),
            comment = c(ORCID = "0009-0001-9726-543X"))
    )
-Description: Simulating ecological interactions using genome-scale metabolic modelling
-License: GNU General Public License version 3.0 (GPLv3) is applied to all copyrightable parts of this software.
+Description: Provides tools for simulating ecological interactions using
+    genome-scale metabolic modelling.
+License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
@@ -21,7 +22,7 @@ Depends:
   stringr (>= 1.4.0),
   utils,
   MicrobiomeGS2,
-  cplexAPI,
+  glpkAPI,
   parallel,
   doParallel,
   foreach,
@@ -29,8 +30,8 @@ Depends:
 Remotes: 
   SysBioChalmers/sybil,
   Waschina/MicrobiomeGS2
-LazyData: true
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    cplexAPI
 VignetteBuilder: knitr

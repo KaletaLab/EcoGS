@@ -1,52 +1,61 @@
 #' Metabolic interactions with MicrobiomeGS2
 #'
-#' Metabolic interactions and growth capacity of metabolic models
-#' based on MicrobiomeGS2 and sybil packages
+#' Metabolic interactions and growth capacity of metabolic models based on the
+#' \pkg{MicrobiomeGS2} and \pkg{sybil} packages.
 #'
-#' @param list_of_models a NAMED list of models in sybil format on the same diet
-#' @param cores the number of available cores
-#' @param save_pair set T to save each pair of models on the working directory
+#' @param list_of_models A named list of models in \pkg{sybil} format on the
+#'   same diet.
+#' @param cores The number of available cores.
+#' @param save_pair If `TRUE`, each pair of models is saved in the
+#'   working directory.
+#' @param solver Solver used for optimisation. Default is `"glpkAPI"`.
+#'   Choosing `"cplexAPI"` is also possible and is faster, but it requires a
+#'   working installation of IBM ILOG CPLEX Optimization Studio.
 #'
-#' @return
-#' (to be returned as an object in the R environment)
+#' @return A list with two elements:
+#' \describe{
+#'   \item{growth_in_pairs}{The result of the biomass optimisation and the
+#'   metabolic interactions for each pair of models.}
+#'   \item{single_growth}{The result of the biomass optimisation of each model
+#'   alone.}
+#' }
 #'
-#' a. the result of the biomass optimisation of each model alone
+#' If `save_pair = TRUE`, an `.RDS` file is saved in the working directory for
+#' each pair of models. Each file contains a list with:
+#' \describe{
+#'   \item{joined_model}{The joined model.}
+#'   \item{common_exchange_reactions}{The common exchange reactions.}
+#'   \item{all_fluxes}{All fluxes of the meta-model.}
+#'   \item{fluxes_from_M1_to_M2}{The fluxes from Model 1 to Model 2.}
+#'   \item{fluxes_from_M2_to_M1}{The fluxes from Model 2 to Model 1.}
+#' }
 #'
-#' b. the result of the biomass optimisation and the metabolic interactions for each pair of models
-#'
-#'=======================================
-#'
-#' (to be saved as a RDS file inside the working directory, if save_pair set to T)
-#'
-#' For each pair, a list with:
-#'
-#'    a.the joined model
-#'
-#'    b.the common exchange reactions
-#'
-#'    c.the fluxes of the meta-model
-#'
-#'    d.the metabolic interactions among the sub-models
 #' @export
 
 
 
 metabolic_interactions_with_MicrobiomeGS2 <- function(list_of_models,
-                                             cores,save_pair) {
+                                             cores,save_pair, solver = "glpkAPI") {
+  if (!solver %in% c("glpkAPI", "cplexAPI")) {
+    stop("solver must be either 'glpkAPI' or 'cplexAPI'")
+  }
   #definitions
   `%dopar%` <- foreach::`%dopar%`
   i <- 1:length(list_of_models)
   #PART A  Growth of Each Model Alone
   #create clusters parallel computation
   cl <- parallel::makeCluster(cores, type = "PSOCK")
-  parallel::clusterExport(cl, c("list_of_models"), envir = environment())
+  parallel::clusterExport(cl, c("list_of_models","solver"), envir = environment())
   doParallel::registerDoParallel(cl)
 
   # call sybil inside each cluster
   data_growth_alone <- foreach::foreach(i = 1:length(list_of_models),
                                         .combine = rbind) %dopar% {
-                                 sybil::SYBIL_SETTINGS("SOLVER", "cplexAPI") #MicrobiomeGS Default
-                                 sybil::SYBIL_SETTINGS("METHOD", "hybbaropt") #MicrobiomeGS Default
+                                  sybil::SYBIL_SETTINGS("SOLVER", solver)
+                                          
+                                  #if (solver == "cplexAPI") {
+                                  #   sybil::SYBIL_SETTINGS("METHOD", "hybbaropt")
+                                  #  }
 
                                  optimum <- sybil::optimizeProb(list_of_models[[i]], algorithm = "fba")
                                  #Data frame to save the growth information of each model alone
@@ -62,7 +71,7 @@ metabolic_interactions_with_MicrobiomeGS2 <- function(list_of_models,
 
   #create clusters parallel computation
   cl <- parallel::makeCluster(cores, type = "PSOCK")
-  parallel::clusterExport(cl, c("list_of_models","total_combinations","save_pair"),
+  parallel::clusterExport(cl, c("list_of_models","total_combinations","save_pair","solver"),
                           envir = environment())
   doParallel::registerDoParallel(cl)
 
@@ -70,9 +79,11 @@ metabolic_interactions_with_MicrobiomeGS2 <- function(list_of_models,
   data_growth_pairs <- foreach::foreach(i = 1:length(total_combinations[,1]),
                                         .combine = rbind) %dopar% {
 
-                                sybil::SYBIL_SETTINGS("SOLVER", "cplexAPI") #MicrobiomeGS Default
-                                sybil::SYBIL_SETTINGS("METHOD", "hybbaropt") #MicrobiomeGS Default
-
+                                sybil::SYBIL_SETTINGS("SOLVER", solver)
+                                          
+                                #if (solver == "cplexAPI") {
+                                #  sybil::SYBIL_SETTINGS("METHOD", "hybbaropt")
+                                #    }
                                  # select combinations
                                  mycomb <- total_combinations[i,]
 

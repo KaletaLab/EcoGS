@@ -3,9 +3,9 @@
 
 A suite to predict ecological relationships between microbial genome-scale metabolic models by comparing growth when models are simulated alone versus when simulated within a community model.
 
-EcoGS operates on existing **sybil** [1] metabolic models originated from the **gapseq** [2] pipeline. Further model reconstruction is not required to run the package. Please use [**sybilSBML**](https://www.cs.hhu.de/en/research-groups/computational-cell-biology/software-contributions/sybil) to import **gapseq** models from SBML files, as EcoGS does not operate on **gapseq** models in [**cobrar**](https://github.com/Waschina/cobrar) format.
+**EcoGS** operates on existing **sybil** [1] metabolic models originated from the **gapseq** [2] pipeline. Further model reconstruction is not required to run the package. Please use [**sybilSBML**](https://www.cs.hhu.de/en/research-groups/computational-cell-biology/software-contributions/sybil) to import **gapseq** models from SBML files, as EcoGS does not operate on **gapseq** models in [**cobrar**](https://github.com/Waschina/cobrar) format.
 
-Growth rates are calculated using flux balance analysis via the **R** [2] package **sybil** [1]. Community models are assembled and simulated using **MicrobiomeGS2** [4].
+Growth rates are calculated using flux balance analysis via the **R** [3] package **sybil** [1]. Community models are assembled and simulated using **MicrobiomeGS2** [4].
 
 ---
 
@@ -49,16 +49,22 @@ To run EcoGS on user-provided models:
 
 ---
 
-## Installation
-
+## Installation in a conda environment
+Create a conda environment and install EcoGS from GitHub:
 ```r
-if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
-
-# Installation without vignette
-devtools::install_github("KaletaLab/EcoGS")
-
-# Installation including vignette (longer build time)
-devtools::install_github("KaletaLab/EcoGS", build_vignettes = TRUE)
+# create the conda environment
+conda env update -f requirements.yml
+conda activate EcoGS
+# install sybil
+Rscript -e "devtools::install_github('SysBioChalmers/sybil')"
+# install sybil
+Rscript -e "devtools::install_github('SysBioChalmers/sybil-SBML')"
+# install MicrobiomeGS2
+Rscript -e "devtools::install_github('Waschina/MicrobiomeGS2')"
+# install EcoGS without vignette
+Rscript -e "devtools::install_github('KaletaLab/EcoGS')"
+# install EcoGS including vignette (longer build time)
+Rscript -e "devtools::install_github("KaletaLab/EcoGS", build_vignettes = TRUE)"
 ```
 
 ### Requirements
@@ -69,13 +75,15 @@ devtools::install_github("KaletaLab/EcoGS", build_vignettes = TRUE)
 4. stringr (>= 1.4.0)  
 5. utils  
 6. MicrobiomeGS2  
-7. cplexAPI  
+7. glpkAPI  
 8. parallel  
 9. doParallel  
 10. foreach  
 11. graphics  
 
-For installation of MicrobiomeGS2 and cplexAPI:  
+The default solver is **glpkAPI**. Choosing **cplexAPI** is also possible and is faster, but it requires a working installation of **IBM ILOG CPLEX Optimization Studio**.
+
+For installation of **MicrobiomeGS2** and **cplexAPI**:  
 https://github.com/Waschina/MicrobiomeGS2/blob/main/README.md  
 
 For installing **sybil** and **sybilSBML**:  
@@ -141,10 +149,10 @@ abundance <- as.data.frame(apply(abundance, 2, function(x) x / sum(x)))
 
 # Step 1: Simulate pairwise metabolic interactions
 step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
-cores = 1, save_pair = T)
+cores = 1, save_pair = T, solver = "glpkAPI")
 
 # Step 2: Construct the ecological matrix
-step2 <- make_eco_mat(growth_file = step1)
+step2 <- make_eco_mat(growth_file = step1, solver = "glpkAPI")
 
 # Step 3: Visualise the predicted relations
 step3 <- plot_relations(eco_mat = step2$eco_mat)
@@ -162,21 +170,21 @@ step5_multi <- relation_ratios(relations_table = step4_multi$weighed_relations)
 ```
 ## References and acknowledgements
 
-We thank the iTREAT consortium, the Excellence Cluster for Precision Medicine in Chronic Inflammation (PMI), and the German Research Foundation (DFG) for their support within the Collaborative Research Centre “Origin and Function of Metaorganisms” (CRC 1182), the Research Group miTarget, and the Project ExoMod.
+We thank the iTREAT consortium and the German Research Foundation (DFG) under Germany`s Excellence Strategy for their support within the Collaborative Research Centre “Origin and Function of Metaorganisms” (CRC 1182), the Research Group miTarget (RU 5042) , the Excellence Cluster for Precision Medicine in Chronic Inflammation (PMI – EXC 2167/2 – 390884018), and the Project ExoMod (518920252).
 
 This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre (DFG Project Number 40395346). We thank Dr Johannes Zimmermann and Dr Robin Koch for helpful discussions and support.
 
 1. Gelius-Dietrich G, Desouki AA, Fritzemeier CJ, Lercher MJ. sybil – Efficient constraint-based modelling in R. BMC Syst Biol. 2013;7:125.  
-2. R Core Team. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing.  
-3. Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021;22:81. 
-4. Waschina S. Analysis and simulation of genome- & ecosystem-scale microbial metabolism.  
+2. Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021;22:81. 
+3. R Core Team. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing.  
+4. Waschina S. Analysis and simulation of genome- & ecosystem-scale microbial metabolism (https://github.com/Waschina/MicrobiomeGS2/).  
 5. Becker N, Kunath J, Loh G, Blaut M. Human intestinal microbiota: characterisation of a simplified and stable gnotobiotic rat model. Gut Microbes. 2011;2:25–33.
 
 ---
 
 ## Citation
 
-Georgios Marinos, Karlis Arturs Moors, Malte Rühlemann, Silvio Waschina, Wolfgang Lieb, Andre Franke, Matthias Laudes, Mathieu Groussin, Mathilde Poyet, Christoph Kaleta*, and A. Samer Kadibalban*, 2025.  
+Georgios Marinos, Karlis Arturs Moors, Kristina Schlicht, Malte Rühlemann, Silvio Waschina, Wolfgang Lieb, Andre Franke, Matthias Laudes, Mathieu Groussin, Mathilde Poyet, Christoph Kaleta*, and A. Samer Kadibalban*, 2025.  
 Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome.  
 https://doi.org/10.1101/2025.09.23.678088  
 

@@ -4,37 +4,46 @@
 \alias{metabolic_interactions_with_MicrobiomeGS2}
 \title{Metabolic interactions with MicrobiomeGS2}
 \usage{
-metabolic_interactions_with_MicrobiomeGS2(list_of_models, cores, save_pair)
+metabolic_interactions_with_MicrobiomeGS2(
+  list_of_models,
+  cores,
+  save_pair,
+  solver = "glpkAPI"
+)
 }
 \arguments{
-\item{list_of_models}{a NAMED list of models in sybil format on the same diet}
+\item{list_of_models}{A named list of models in \pkg{sybil} format on the
+same diet.}
 
-\item{cores}{the number of available cores}
+\item{cores}{The number of available cores.}
 
-\item{save_pair}{set T to save each pair of models on the working directory}
+\item{save_pair}{If \code{TRUE}, each pair of models is saved in the
+working directory.}
+
+\item{solver}{Solver used for optimisation. Default is \code{"glpkAPI"}.
+Choosing \code{"cplexAPI"} is also possible and is faster, but it requires a
+working installation of IBM ILOG CPLEX Optimization Studio.}
 }
 \value{
-(to be returned as an object in the R environment)
+A list with two elements:
+\describe{
+\item{growth_in_pairs}{The result of the biomass optimisation and the
+metabolic interactions for each pair of models.}
+\item{single_growth}{The result of the biomass optimisation of each model
+alone.}
+}
 
-a. the result of the biomass optimisation of each model alone
-
-b. the result of the biomass optimisation and the metabolic interactions for each pair of models
-
-=======================================
-
-(to be saved as a RDS file inside the working directory, if save_pair set to T)
-
-For each pair, a list with:
-
-a.the joined model
-
-b.the common exchange reactions
-
-c.the fluxes of the meta-model
-
-d.the metabolic interactions among the sub-models
+If \code{save_pair = TRUE}, an \code{.RDS} file is saved in the working directory for
+each pair of models. Each file contains a list with:
+\describe{
+\item{joined_model}{The joined model.}
+\item{common_exchange_reactions}{The common exchange reactions.}
+\item{all_fluxes}{All fluxes of the meta-model.}
+\item{fluxes_from_M1_to_M2}{The fluxes from Model 1 to Model 2.}
+\item{fluxes_from_M2_to_M1}{The fluxes from Model 2 to Model 1.}
+}
 }
 \description{
-Metabolic interactions and growth capacity of metabolic models
-based on MicrobiomeGS2 and sybil packages
+Metabolic interactions and growth capacity of metabolic models based on the
+\pkg{MicrobiomeGS2} and \pkg{sybil} packages.
 }

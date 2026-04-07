@@ -1,0 +1,11 @@
+name: EcoGS
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-devtools
+  - r-glpkapi
+  - r-matrix
+  - libsbml
+  - bioconductor-rsbml
+

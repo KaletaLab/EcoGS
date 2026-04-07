@@ -3,9 +3,9 @@
 #' The prediction of the frequency of ecological relationship between pairs of co-grown bacteria in each sample (community)
 #' as exported by the function make_eco_mat and a user imported OTU table
 #'
-#' @param OTU_table a matrix of the abundances of each species in each sample (columns are samples and rows are bacterial species)
-#' @param eco_mat a list, as exported by the function make_eco_mat and which contains: matrix of all_models X all_models with each cell represents the ecological relation between the two strains
-#' @param weighing_method either "min" for using lower abundance of the interacting bacteria for weighing (default), or "multi" for using the multiplication of the two abundances
+#' @param OTU_table A matrix of the abundances of each species in each sample (columns are samples and rows are bacterial species)
+#' @param eco_mat A list, as exported by the function make_eco_mat and which contains: matrix of all_models X all_models with each cell represents the ecological relation between the two strains
+#' @param weighing_method Either "min" for using lower abundance of the interacting bacteria for weighing (default), or "multi" for using the multiplication of the two abundances
 #' 
 #' @return
 #' (a list object in the R environment)

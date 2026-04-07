@@ -8,7 +8,9 @@
 #'  a. The result of the biomass optimization of each model alone
 #'
 #'  b. The result of the biomass optimization and the metabolic interactions for each pair of models
-#' @param alpha the margin in the relative growth (co_growth - alone_growth)/alone_growth that would be counted as a considerable change, default is 0.05
+#' @param alpha The margin in the relative growth (co_growth - alone_growth)/alone_growth that would be counted as a considerable change, default is 0.05
+#' @param solver Solver used for optimisation in step 1.
+#' 
 #' @return
 #' (a list object in the R environment)
 #'
@@ -30,7 +32,15 @@
 #' @md
 #' @export
 
-make_eco_mat <- function(growth_file, alpha = 0.05){
+make_eco_mat <- function(growth_file, alpha = 0.05, solver = "glpkAPI"){
+  if (!solver %in% c("glpkAPI", "cplexAPI")) {
+    stop("solver must be either 'glpkAPI' or 'cplexAPI'")
+  }
+  ok_status <- switch(
+    solver,
+    "cplexAPI" = 1,
+    "glpkAPI" = 5
+  )
   growth_list <- growth_file
   pair_growth <- growth_list[["growth_in_pairs"]]
   pair_growth$Model_1_Growth[pair_growth$Model_1_Growth < 10^-6] = 0
@@ -41,7 +51,7 @@ make_eco_mat <- function(growth_file, alpha = 0.05){
   pair_remove_ind <- pair_growth$Model_1 %in% single_remove_names | pair_growth$Model_2 %in% single_remove_names
   single_growth <- single_growth[!single_remove_ind,]
   pair_growth <- pair_growth[!pair_remove_ind,]
-  untrusted_pairs <- pair_growth[pair_growth$Optimisation_status != 1,]
+  untrusted_pairs <- pair_growth[pair_growth$Optimisation_status != ok_status, ]
   growth_mat <- as.data.frame(matrix(NA, nrow(single_growth), nrow(single_growth)))
   rownames(growth_mat) <- single_growth$Model.name
   colnames(growth_mat) <- single_growth$Model.name

@@ -4,7 +4,7 @@
 \alias{make_eco_mat}
 \title{Calculation of ecological relationships}
 \usage{
-make_eco_mat(growth_file, alpha = 0.05)
+make_eco_mat(growth_file, alpha = 0.05, solver = "glpkAPI")
 }
 \arguments{
 \item{growth_file}{a list, as exported by the function metabolic_interactions_with_MicrobiomeGS2 and contains:
@@ -13,7 +13,9 @@ a. The result of the biomass optimization of each model alone
 
 b. The result of the biomass optimization and the metabolic interactions for each pair of models}
 
-\item{alpha}{the margin in the relative growth (co_growth - alone_growth)/alone_growth that would be counted as a considerable change, default is 0.05}
+\item{alpha}{The margin in the relative growth (co_growth - alone_growth)/alone_growth that would be counted as a considerable change, default is 0.05}
+
+\item{solver}{Solver used for optimisation in step 1.}
 }
 \value{
 (a list object in the R environment)

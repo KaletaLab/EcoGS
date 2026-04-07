@@ -1,6 +1,6 @@
 ---
 title: "**EcoGS Manual**"
-subtitle: "**Link**: www.github.com/KaletaLab/EcoGS | **Commit**: 8f9268e3"
+subtitle: "**Link**: www.github.com/KaletaLab/EcoGS"
 author: "Dr Georgios Marinos and Dr Samer Kadib Alban"
 date: "`r format(Sys.time(), '%A, %B %d, %Y')`"
 output: 
@@ -120,10 +120,12 @@ overview of the interaction network.
 ```{r Pipeline_1_3}
 # Step 1: Simulate pairwise metabolic interactions
 step1 <- metabolic_interactions_with_MicrobiomeGS2(list_of_models = SIHUMIx_gapseq_EcoGS,
-                                                   cores = 1, save_pair = T)
+                                                   cores = 1,
+                                                   save_pair = T,
+                                                   solver = "glpkAPI")
 
 # Step 2: Construct the ecological matrix
-step2 <- make_eco_mat(growth_file = step1)
+step2 <- make_eco_mat(growth_file = step1, solver = "glpkAPI")
 
 # Step 3: Visualise the predicted relations
 step3 <- plot_relations(eco_mat = step2$eco_mat)

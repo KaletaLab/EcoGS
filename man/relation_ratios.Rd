@@ -7,7 +7,7 @@
 relation_ratios(relations_table)
 }
 \arguments{
-\item{relations_table}{the ecological relation frequencies per sample, exported by the function "relation_per_sample"}
+\item{relations_table}{The ecological relation frequencies per sample, exported by the function "relation_per_sample"}
 }
 \value{
 A data frame of the log10 transformed ecological relations ratios
