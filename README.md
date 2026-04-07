@@ -64,7 +64,7 @@ Rscript -e "devtools::install_github('Waschina/MicrobiomeGS2')"
 # install EcoGS without vignette
 Rscript -e "devtools::install_github('KaletaLab/EcoGS')"
 # install EcoGS including vignette (longer build time)
-Rscript -e "devtools::install_github("KaletaLab/EcoGS", build_vignettes = TRUE)"
+Rscript -e "devtools::install_github('KaletaLab/EcoGS', build_vignettes = TRUE)"
 ```
 
 ### Requirements
