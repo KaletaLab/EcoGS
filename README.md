@@ -50,14 +50,14 @@ To run EcoGS on user-provided models:
 ---
 
 ## Installation in a conda environment
-Create a conda environment and install EcoGS from GitHub:
+Create a conda environment and install EcoGS from GitHub (tested in Ubuntu):
 ```r
 # create the conda environment
 conda env update -f requirements.yml
 conda activate EcoGS
 # install sybil
 Rscript -e "devtools::install_github('SysBioChalmers/sybil')"
-# install sybil
+# install sybilSBML
 Rscript -e "devtools::install_github('SysBioChalmers/sybil-SBML')"
 # install MicrobiomeGS2
 Rscript -e "devtools::install_github('Waschina/MicrobiomeGS2')"
