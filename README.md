@@ -49,8 +49,8 @@ To run EcoGS on user-provided models:
 
 ---
 
-## Installation in a conda environment
-Create a conda environment and install EcoGS from GitHub (tested in Ubuntu):
+## Installation in a **conda** environment
+Create a **conda** environment and install **EcoGS** from GitHub (tested in Ubuntu):
 ```r
 # create the conda environment
 conda env update -f requirements.yml
@@ -85,7 +85,7 @@ Rscript -e "devtools::install_github('KaletaLab/EcoGS', build_vignettes = TRUE)"
 10. foreach  
 11. graphics  
 
-The default solver is **GLPK**. Choosing **CPLEX** is also possible and simulations are faster, but it requires a working installation of **IBM ILOG CPLEX Optimization Studio**.
+The default solver is **GLPK**. Choosing **CPLEX** is also possible and simulations are faster, but it requires a working installation of **IBM ILOG CPLEX Optimization Studio** and **cplexAPI**.
 
 For installation of **MicrobiomeGS2** and **cplexAPI**:  
 https://github.com/Waschina/MicrobiomeGS2/blob/main/README.md  
