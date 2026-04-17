@@ -176,7 +176,7 @@ step5_multi <- relation_ratios(relations_table = step4_multi$weighed_relations)
 
 We thank the iTREAT consortium and the German Research Foundation (DFG) under Germany`s Excellence Strategy for their support within the Collaborative Research Centre “Origin and Function of Metaorganisms” (CRC 1182), the Research Group miTarget (RU 5042) , the Excellence Cluster for Precision Medicine in Chronic Inflammation (PMI – EXC 2167/2 – 390884018), and the Project ExoMod (518920252).
 
-This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre (DFG Project Number 40395346). We thank Dr Johannes Zimmermann and Dr Robin Koch for helpful discussions and support.
+This research was supported in part through high-performance computing resources available at the Kiel University Computing Centre (DFG Project Number 40395346). We thank Dr Jan Taubenheim, Dr Johannes Zimmermann and Dr Robin Koch for helpful discussions and support.
 
 1. Gelius-Dietrich G, Desouki AA, Fritzemeier CJ, Lercher MJ. sybil – Efficient constraint-based modelling in R. BMC Syst Biol. 2013;7:125.  
 2. Zimmermann J, Kaleta C, Waschina S. gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models. Genome Biol. 2021;22:81. 
