@@ -53,7 +53,7 @@ To run EcoGS on user-provided models:
 Create a **conda** environment and install **EcoGS** from GitHub (tested in Ubuntu):
 ```r
 # create the conda environment
-conda env update -f requirements.yml
+conda env create -f requirements.yml
 conda activate EcoGS
 # install sybil
 Rscript -e "devtools::install_github('SysBioChalmers/sybil')"
