@@ -188,9 +188,7 @@ This research was supported in part through high-performance computing resources
 
 ## Citation
 
-Georgios Marinos, Karlis Arturs Moors, Kristina Schlicht, Malte Rühlemann, Silvio Waschina, Wolfgang Lieb, Andre Franke, Matthias Laudes, Mathieu Groussin, Mathilde Poyet, Christoph Kaleta*, and A. Samer Kadibalban*, 2025.  
-Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome.  
-https://doi.org/10.1101/2025.09.23.678088  
+Georgios Marinos, Karlis Arturs Moors, Kristina Schlicht, Malte Rühlemann, Silvio Waschina, Wolfgang Lieb, Andre Franke, Matthias Laudes, Mathieu Groussin, Mathilde Poyet, Christoph Kaleta*, and A. Samer Kadibalban*, Genome-scale metabolic models predict diet- and lifestyle-driven shifts of ecological interactions in the gut microbiome. Gut Microbes. 2026 Dec 31;18(1):2694811. doi: 10.1080/19490976.2026.2694811
 
 *Shared corresponding authors; enquiries to c.kaleta@iem.uni-kiel.de and/or s.kadibalban@iem.uni-kiel.de*
 
