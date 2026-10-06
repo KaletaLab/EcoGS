@@ -90,9 +90,10 @@ The default solver is **GLPK**. Choosing **CPLEX** is also possible and simulati
 For installation of **MicrobiomeGS2** and **cplexAPI**:  
 https://github.com/Waschina/MicrobiomeGS2/blob/main/README.md  
 
-For installing **sybil** and **sybilSBML**:  
+For installing **sybil** and **sybilSBML**:
 https://www.cs.hhu.de/en/research-groups/computational-cell-biology/software-contributions/sybil
 https://github.com/SysBioChalmers/sybil-SBML/blob/main/README.md
+
 ---
 
 ## Technical details
